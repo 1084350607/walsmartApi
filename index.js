@@ -4,7 +4,6 @@ let register = require('./router/register')
 let goods = require('./router/goods')
 let cookieParser = require('cookie-parser')
 var app = express()
-<<<<<<< HEAD
 
 //设置跨域访问
 app.all('*', function(req, res, next) {
@@ -17,9 +16,6 @@ app.all('*', function(req, res, next) {
 });
 
 // get post data 
-=======
-// post 
->>>>>>> 98317f17bf9af174211d238c2725c218d4e56586
 const bodyParser = require('body-parser');
 //设置跨域访问
 app.all('*', function(req, res, next) {

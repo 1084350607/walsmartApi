@@ -1,13 +1,8 @@
 var express = require("express");
 var router = express.Router();
 var query = require("../mysql/root");
-<<<<<<< HEAD
-
-// 获取所有商品
-=======
 let jwt = require("jsonwebtoken");
 let secrect = "qwert";
->>>>>>> 98317f17bf9af174211d238c2725c218d4e56586
 router.get("/get_all", async function (req, res) {
   let result = null;
   try {
@@ -43,8 +38,9 @@ router.get("/get_goods_by_category", async (req, res) => {
 
 //通过商品id查询商品信息
 router.get("/get_goods_by_id", async (req, res) => {
-    let user_id = req.cookies.jwt && jwt.verify(req.cookies.jwt,secrect).user_id
+  let user_id = req.cookies.jwt && jwt.verify(req.cookies.jwt,secrect).user_id
   const { id } = req.query;
+  console.log(id)
   let sql = "select * from goods_info where id=?";
   let sql1 = "select * from shopping_car where user_id =? and goods_id=?"
   let result = null;

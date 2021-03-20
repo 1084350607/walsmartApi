@@ -19,7 +19,9 @@ router.post('/', async function(req, res){
             res.send({
                 status: 'success',
                 msg: '登录成功',
-                data:dbData[i]
+                data: Object.assign(dbData[i], {
+                    password: ''
+                })
             })
             
             break
