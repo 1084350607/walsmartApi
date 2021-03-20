@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var query = require("../mysql/root");
 
+// 获取所有商品
 router.get("/get_all", async function (req, res) {
   let result = null;
   try {
@@ -9,6 +10,7 @@ router.get("/get_all", async function (req, res) {
     result = await query(sql);
     // console.log(result)
   } catch (error) {
+    console.log(error)
     res.send({ status: "error", msg: "查询失败" });
   }
   res.send({ status: "success", msg: "查询成功", data: result });
