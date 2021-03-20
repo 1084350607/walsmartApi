@@ -10,6 +10,7 @@ router.get("/get_all", async function (req, res) {
     result = await query(sql);
     // console.log(result)
   } catch (error) {
+    console.log(error)
     res.send({ status: "error", msg: "查询失败" });
   }
   res.send({ status: "success", msg: "查询成功", data: result });
@@ -37,8 +38,9 @@ router.get("/get_goods_by_category", async (req, res) => {
 
 //通过商品id查询商品信息
 router.get("/get_goods_by_id", async (req, res) => {
-    let user_id = req.cookies.jwt && jwt.verify(req.cookies.jwt,secrect).user_id
+  let user_id = req.cookies.jwt && jwt.verify(req.cookies.jwt,secrect).user_id
   const { id } = req.query;
+  console.log(id)
   let sql = "select * from goods_info where id=?";
   let sql1 = "select * from shopping_car where user_id =? and goods_id=?"
   let result = null;
