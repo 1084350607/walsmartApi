@@ -71,7 +71,7 @@ router.get("/get_collect_by_id", async (req, res) => {
        id = jwt.verify(jwtString,secrect).user_id
     }else{
         res.send({status:301,msg:'登陆失效，重新登陆'})
-        reuturn 
+        return 
     }
 //   const { id } = req.query;
   let sql = "select * from shopping_car where user_id = ?";
