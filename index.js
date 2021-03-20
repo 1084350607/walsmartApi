@@ -1,12 +1,15 @@
 var express = require('express')
-var login = require('./router/login')
-var goods = require('./router/goods')
-let bodyParser = require('body-parser')
+let login = require('./router/login')
+let register = require('./router/register')
+let goods = require('./router/goods')
 var app = express()
-const jsonParser = bodyParser.json()
-app.use(jsonParser)
-app.use(bodyParser.urlencoded({extended:true}))
+
+// post 
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}))
+
 app.use('/login', login)
+app.use('/register', register)
 app.use('/goods', goods)
 
 app.listen(3000)
