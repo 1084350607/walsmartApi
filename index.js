@@ -1,7 +1,12 @@
 var express = require('express')
 var login = require('./router/login')
-
+var goods = require('./router/goods')
+let bodyParser = require('body-parser')
 var app = express()
+const jsonParser = bodyParser.json()
+app.use(jsonParser)
+app.use(bodyParser.urlencoded({extended:true}))
 app.use('/login', login)
+app.use('/goods', goods)
 
 app.listen(3000)
